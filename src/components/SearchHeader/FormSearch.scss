@@ -1,0 +1,33 @@
+@use "@styles/base/_mixins.scss" as *;
+
+.search-header {
+	display: flex;
+	column-gap: toRem(15);
+	// .search-header__button
+	&__button {
+		flex-shrink: 0;
+		width: toRem(20);
+		aspect-ratio: 1;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .search-header__form
+	&__form {
+		width: 0;
+		transition:
+			width 0.3s,
+			visibility 0.3s;
+		overflow: hidden;
+		visibility: hidden;
+		&.--open {
+			width: toRem(169);
+			visibility: visible;
+		}
+	}
+	// .form-header__input
+	&__input {
+	}
+}

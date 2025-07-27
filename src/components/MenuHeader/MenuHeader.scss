@@ -1,0 +1,31 @@
+@use "@styles/base/_mixins.scss" as *;
+
+.menu {
+	padding-inline: toRem(48);
+	// .menu__list
+	&__list {
+		display: flex;
+		justify-content: flex-end;
+		column-gap: toRem(35);
+		row-gap: toRem(8);
+		flex-wrap: wrap;
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		color: var(--text-accent);
+		transition: color 0.3s;
+		text-transform: capitalize;
+		// .menu__link--current
+		&--current {
+			color: var(--accent);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--accent);
+			}
+		}
+	}
+}

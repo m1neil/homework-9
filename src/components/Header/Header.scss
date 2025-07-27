@@ -1,0 +1,48 @@
+@use "@styles/base/_mixins.scss" as *;
+
+.header {
+	// .header__container
+	&__container {
+		display: flex;
+		align-items: center;
+		min-height: toRem(72);
+		padding-block: toRem(10);
+	}
+	// .header__logo
+	&__logo {
+		width: toRem(134);
+		flex-shrink: 0;
+	}
+	// .header__menu
+	&__menu {
+		flex-grow: 1;
+		&:not(:last-child) {
+			border-inline-end: toRem(1) solid #707070;
+		}
+	}
+	// .header__actions
+	&__actions {
+		flex-shrink: 0;
+	}
+}
+
+.actions-header {
+	display: flex;
+	column-gap: toRem(39);
+	// .actions-header__search
+	&__search {
+		flex-shrink: 0;
+		padding-inline-start: toRem(33);
+	}
+	// .actions-header__link
+	&__link {
+		flex-shrink: 0;
+		width: toRem(20);
+		aspect-ratio: 1;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
