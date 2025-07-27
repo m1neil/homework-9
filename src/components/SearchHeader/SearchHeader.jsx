@@ -2,7 +2,7 @@ import frontRoutes from '@/routes/frontRoutes'
 import searchIcon from '@img/icons/search.svg'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import './FormSearch.scss'
+import './SearchHeader.scss'
 
 function SearchHeader({ suffixClass }) {
 	const navigate = useNavigate()
