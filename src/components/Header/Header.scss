@@ -1,6 +1,12 @@
 @use "@styles/base/_mixins.scss" as *;
 
 .header {
+	position: sticky;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	background-color: #fff;
 	// .header__container
 	&__container {
 		display: flex;
@@ -28,6 +34,7 @@
 
 .actions-header {
 	display: flex;
+	align-items: center;
 	column-gap: toRem(39);
 	// .actions-header__search
 	&__search {
@@ -39,10 +46,12 @@
 		flex-shrink: 0;
 		width: toRem(20);
 		aspect-ratio: 1;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
+		transition: transform 0.3s;
+		will-change: transform;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.05) rotate(5deg);
+			}
 		}
 	}
 }

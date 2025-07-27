@@ -1,3 +1,6 @@
-const BASE_URL = ''
+const BASE_API_URL = 'http://localhost:5000'
 
-export const apiBackend = {}
+export const apiBackend = {
+	products: `${BASE_API_URL}/api/products`,
+	getProductById: id => `${BASE_API_URL}/api/products/${id}`,
+}

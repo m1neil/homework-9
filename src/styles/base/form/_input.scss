@@ -1,0 +1,23 @@
+@use "@styles/base/_mixins.scss" as *;
+
+.input {
+	height: toRem(40);
+	line-height: 1.6875;
+	color: var(--text-accent);
+	border-block-end: toRem(1) solid #d8d8d8;
+	transition: border-color 0.3s;
+	outline: none;
+	&--small {
+		height: toRem(32);
+	}
+	&::placeholder {
+		color: var(--text-primary);
+		transition: opacity 0.3s;
+	}
+	&:focus {
+		border-color: var(--accent);
+		&::placeholder {
+			opacity: 0;
+		}
+	}
+}

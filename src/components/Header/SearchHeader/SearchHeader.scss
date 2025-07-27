@@ -2,16 +2,20 @@
 
 .search-header {
 	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
 	column-gap: toRem(15);
 	// .search-header__button
 	&__button {
 		flex-shrink: 0;
 		width: toRem(20);
 		aspect-ratio: 1;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
+		transition: transform 0.3s;
+		will-change: transform;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.05) rotate(5deg);
+			}
 		}
 	}
 	// .search-header__form

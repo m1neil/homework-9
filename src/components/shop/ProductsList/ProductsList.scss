@@ -1,0 +1,14 @@
+@use "@styles/base/_mixins.scss" as *;
+@use "@styles/base/_animation.scss" as *;
+
+.list-shop {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: toRem(57);
+	row-gap: toRem(86);
+	&__card {
+		opacity: 0;
+		visibility: hidden;
+		animation: smooth-show 0.4s forwards ease;
+	}
+}

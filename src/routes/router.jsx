@@ -2,14 +2,15 @@ import Layout from '@/layouts/Layout'
 import About from '@/pages/About'
 import Account from '@/pages/Account'
 import BlogList from '@/pages/blog/BlogList'
-import Post from '@/pages/blog/Post'
+import Cart from '@/pages/Cart'
 import Contacts from '@/pages/Contacts'
 import ErrorPage from '@/pages/ErrorPage'
 import Home from '@/pages/Home'
 import Page404 from '@/pages/Page404'
+import Post from '@/pages/Post'
+import ProductDetail from '@/pages/ProductDetail/ProductDetail'
 import Rules from '@/pages/Rules'
-import ProductDetail from '@/pages/shop/ProductDetail'
-import ShopList from '@/pages/shop/ShopList'
+import Shop from '@/pages/shop/Shop'
 import { createBrowserRouter } from 'react-router'
 import frontRoutes from './frontRoutes'
 
@@ -32,12 +33,15 @@ export const routes = [
 			},
 			{
 				path: frontRoutes.pages.shop.index,
-				element: <ShopList />,
 				handle: {
 					crumb: () => frontRoutes.navigate.shop.index,
 					title: 'Shop',
 				},
 				children: [
+					{
+						index: true,
+						element: <Shop />,
+					},
 					{
 						path: frontRoutes.pages.shop.product,
 						element: <ProductDetail />,
@@ -86,6 +90,10 @@ export const routes = [
 				handle: {
 					title: 'Privacy Policy',
 				},
+			},
+			{
+				path: frontRoutes.pages.cart,
+				element: <Cart />,
 			},
 			{
 				path: '*',

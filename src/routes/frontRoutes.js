@@ -13,6 +13,7 @@ const frontRoutes = {
 			post: ':id',
 		},
 		privacyPolicy: '/privacy-policy',
+		cart: '/cart',
 	},
 	navigate: {
 		home: '/',
@@ -28,6 +29,7 @@ const frontRoutes = {
 			getPost: id => `/blog/${id}`,
 		},
 		privacyPolicy: '/privacy-policy',
+		cart: '/cart',
 	},
 }
 

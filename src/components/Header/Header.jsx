@@ -3,9 +3,9 @@ import accountIcon from '@img/icons/account.svg'
 import cartIcon from '@img/icons/cart.svg'
 import logo from '@img/logo.svg'
 import { Link } from 'react-router'
-import MenuHeader from '../MenuHeader/MenuHeader'
-import SearchHeader from '../SearchHeader/SearchHeader'
 import './Header.scss'
+import MenuHeader from './MenuHeader/MenuHeader'
+import SearchHeader from './SearchHeader/SearchHeader'
 
 function Header() {
 	return (
@@ -17,14 +17,23 @@ function Header() {
 				<MenuHeader suffixClass="header__menu" />
 				<div className="header__actions actions-header">
 					<SearchHeader suffixClass="actions-header__search" />
-					<Link aria-label="go to user cart" className="actions-header__link">
-						<img src={cartIcon} alt="cart icon" />
+					<Link
+						to="#"
+						aria-label="go to user cart"
+						className="actions-header__link"
+					>
+						<img className="ibg ibg--contain" src={cartIcon} alt="cart icon" />
 					</Link>
 					<Link
+						to="#"
 						aria-label="go to user account"
 						className="actions-header__link"
 					>
-						<img src={accountIcon} alt="account icon" />
+						<img
+							className="ibg ibg--contain"
+							src={accountIcon}
+							alt="account icon"
+						/>
 					</Link>
 				</div>
 			</div>

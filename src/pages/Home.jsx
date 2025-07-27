@@ -1,5 +1,13 @@
+import Promo from '@/components/Promo/Promo'
+import ShopLates from '@/components/shop/ShopLates/ShopLates'
+
 function Home() {
-	return <section className="home">Home</section>
+	return (
+		<>
+			<Promo />
+			<ShopLates title="Shop The Latest" />
+		</>
+	)
 }
 
 export default Home

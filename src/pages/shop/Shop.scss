@@ -1,0 +1,19 @@
+@use "@styles/base/_mixins.scss" as *;
+
+.shop {
+	padding-block: toRem(15) toRem(64);
+	// .shop__container
+	&__container {
+	}
+	// .shop__title
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: toRem(39);
+		}
+	}
+	// .shop__info
+	&__info {
+		display: flex;
+		justify-content: center;
+	}
+}

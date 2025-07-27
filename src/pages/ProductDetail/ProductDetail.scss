@@ -1,0 +1,49 @@
+@use "@styles/base/_mixins.scss" as *;
+
+.product-detail {
+	padding-block: toRem(32);
+	&:has(.lds-roller) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: toRem(350);
+	}
+	// .product-detail__container
+	&__container {
+		display: flex;
+		align-items: flex-start;
+		column-gap: toRem(62);
+	}
+	// .product-detail__img
+	&__img {
+		flex-basis: toRem(540);
+		aspect-ratio: 540 / 350;
+		border-radius: toRem(8);
+		overflow: hidden;
+	}
+	// .product-detail__content
+	&__content {
+		padding-block-start: toRem(10);
+		flex-basis: toRem(645);
+	}
+	// .product-detail__title
+	&__title {
+		margin-bottom: toRem(23);
+	}
+	// .product-detail__price
+	&__price {
+		font-weight: 500;
+		font-size: toRem(20);
+		line-height: 1.3;
+		color: var(--accent);
+		margin-bottom: toRem(35);
+	}
+	// .product-detail__rating
+	&__rating {
+		margin-bottom: toRem(15);
+	}
+	// .product-detail__text
+	&__text {
+		margin-bottom: toRem(30);
+	}
+}

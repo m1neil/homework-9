@@ -8,15 +8,33 @@ function SearchHeader({ suffixClass }) {
 	const navigate = useNavigate()
 	const [search, setSearch] = useState('')
 	const [isShowSearch, setIsShowSearch] = useState(false)
-	const [isBlockToggleSearch, setIsBlockToggleSearch] = useState(false)
+	const isBlockToggleSearchRef = useRef(false)
 	const timeoutRef = useRef(null)
 
+	const onClickAllDoc = event => {
+		if (isBlockToggleSearchRef.current) return
+
+		const target = event.target
+		if (!target.closest('.search-header')) {
+			setIsShowSearch(false)
+			isBlockToggleSearchRef.current = true
+		}
+	}
+
 	useEffect(() => {
-		if (!isBlockToggleSearch) return
+		if (!isBlockToggleSearchRef.current) return
+
 		timeoutRef.current = setTimeout(() => {
-			setIsBlockToggleSearch(false)
+			isBlockToggleSearchRef.current = false
 		}, 300)
+
 		return () => clearTimeout(timeoutRef.current)
+	}, [isShowSearch])
+
+	useEffect(() => {
+		if (isShowSearch) document.addEventListener('click', onClickAllDoc)
+		else document.removeEventListener('click', onClickAllDoc)
+		return () => document.removeEventListener('click', onClickAllDoc)
 	}, [isShowSearch])
 
 	const onSubmitForm = event => {
@@ -31,15 +49,22 @@ function SearchHeader({ suffixClass }) {
 	}
 
 	const onHandleIsShowSearch = () => {
-		if (isBlockToggleSearch) return
+		if (isBlockToggleSearchRef.current) return
 		setIsShowSearch(prevIsShow => !prevIsShow)
-		setIsBlockToggleSearch(true)
+		isBlockToggleSearchRef.current = true
 	}
 
 	const classShowForm = isShowSearch ? '--open' : ''
 
 	return (
 		<div className={`${suffixClass} search-header`}>
+			<button
+				onClick={onHandleIsShowSearch}
+				aria-label="open search"
+				className="search-header__button"
+			>
+				<img className="ibg ibg--contain" src={searchIcon} alt="search icon" />
+			</button>
 			<form
 				onSubmit={onSubmitForm}
 				className={`search-header__form ${classShowForm}`.trim()}
@@ -50,18 +75,11 @@ function SearchHeader({ suffixClass }) {
 					name="search"
 					value={search}
 					type="text"
-					className="search-header__input"
+					className="search-header__input input input--small"
 					placeholder="Search..."
 					onChange={e => setSearch(e.target.value)}
 				/>
 			</form>
-			<button
-				onClick={onHandleIsShowSearch}
-				aria-label="open search"
-				className="search-header__button"
-			>
-				<img src={searchIcon} alt="search icon" />
-			</button>
 		</div>
 	)
 }
