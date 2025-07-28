@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs'
 import ErrorMessage from '@/components/ErrorMessage'
 import Loader from '@/components/Loader/Loader'
 import Rating from '@/components/Rating/Rating'
@@ -38,28 +39,35 @@ function ProductDetail() {
 	return (
 		<section className="product-detail">
 			<div className="product-detail__container">
-				<div className="product-detail__img">
-					<img className="ibg" src={product.imageUrl} alt="Image" />
-				</div>
-				<div className="product-detail__content">
-					<h1 className="product-detail__title title title--fz-26">
-						{product.name}
-					</h1>
-					<div className="product-detail__price">
-						$ {parseFloat(product.price).toFixed(2)}
+				<Breadcrumbs
+					suffixClass="product-detail__breadcrumbs"
+					title={product.name}
+					idPage={product.id}
+				/>
+				<div className="product-detail__body">
+					<div className="product-detail__img">
+						<img className="ibg" src={product.imageUrl} alt="Image" />
 					</div>
-					<Rating
-						suffixClass="product-detail__rating"
-						amountStars={product.rating}
-					/>
-					<div className="product-detail__rating rating"></div>
-					<div className="product-detail__text text">
-						<p>{product.description}</p>
+					<div className="product-detail__content">
+						<h1 className="product-detail__title title title--fz-26">
+							{product.name}
+						</h1>
+						<div className="product-detail__price">
+							$ {parseFloat(product.price).toFixed(2)}
+						</div>
+						<Rating
+							suffixClass="product-detail__rating"
+							amountStars={product.rating}
+						/>
+						<div className="product-detail__rating rating"></div>
+						<div className="product-detail__text text">
+							<p>{product.description}</p>
+						</div>
+						<SocialList
+							suffixClass="product-detail__social"
+							social={product?.social}
+						/>
 					</div>
-					<SocialList
-						suffixClass="product-detail__social"
-						social={product?.social}
-					/>
 				</div>
 			</div>
 		</section>

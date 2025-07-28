@@ -11,6 +11,16 @@
 	}
 	// .product-detail__container
 	&__container {
+	}
+	// .product-detail__breadcrumbs
+	&__breadcrumbs {
+		animation: smooth-show 0.2s forwards ease;
+		&:not(:last-child) {
+			margin-bottom: toRem(15);
+		}
+	}
+	// .product-detail__body
+	&__body {
 		display: flex;
 		align-items: flex-start;
 		column-gap: toRem(62);

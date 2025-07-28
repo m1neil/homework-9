@@ -55,4 +55,9 @@
 		background-color: transparent;
 		transform: scale(1.6);
 	}
+	@media (any-hover: hover) {
+		&:hover:not(.swiper-pagination-bullet-active) {
+			transform: scale(1.3);
+		}
+	}
 }
