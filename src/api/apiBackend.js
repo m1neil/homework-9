@@ -1,7 +1,12 @@
-const BASE_API_URL = 'https://backend-homework-9.onrender.com'
+const BASE_API_URL = 'http://localhost:8080'
 
 export const apiBackend = {
-	products: `${BASE_API_URL}/api/products`,
-	getProductById: id => `${BASE_API_URL}/api/products/${id}`,
-	getProductsByName: name => `${BASE_API_URL}/api/products/search?q=${name}`,
+	products: (amount = null) => {
+		let path
+		if (amount) path = `/api/Product/GetProductList?count=${amount}`
+		else path = `/api/Product/GetProductList`
+		return `${BASE_API_URL}${path}`
+	},
+	getProductById: id => `${BASE_API_URL}/api/Product/GetProductById/${id}`,
+	getProductsByName: name => `${BASE_API_URL}/api/Product/Search?term=${name}`,
 }

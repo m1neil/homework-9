@@ -1,4 +1,5 @@
 import { apiBackend } from '@/api/apiBackend'
+import unpackingObject from '@/utils/unpackingObject'
 import { useCallback, useState } from 'react'
 
 const useFetch = (initData = null, initIsLoading = false) => {
@@ -24,13 +25,16 @@ const useFetch = (initData = null, initIsLoading = false) => {
 		setIsLoading(true)
 		setError(null)
 		try {
-			const response = await fetch(url, { method })
+			const response = await fetch(url, {
+				method,
+				headers: { 'Content-Type': 'application/json' },
+			})
 			if (!response.ok) {
 				throw new Error(
 					`Failed to get data for the URL: ${url}, status: ${response.status}`
 				)
 			}
-			setData(await response.json())
+			setData(unpackingObject(await response.json()))
 		} catch (error) {
 			setError(error.message)
 		} finally {
@@ -59,6 +63,7 @@ const useFetch = (initData = null, initIsLoading = false) => {
 		data,
 		isLoading,
 		error,
+		setData,
 		getData,
 		getProductById,
 		searchProductsByName,

@@ -12,12 +12,14 @@ function ShopLates({ title }) {
 	const { data: products, isLoading, error, getData } = useFetch([], true)
 
 	useEffect(() => {
-		getData(apiBackend.products)
+		getData(apiBackend.products())
 	}, [])
 
 	let info
 	if (isLoading) info = <Loader />
 	else if (error) info = <ErrorMessage>Failed to load goods</ErrorMessage>
+
+	console.log(products)
 
 	return (
 		<section className="shop-latest">

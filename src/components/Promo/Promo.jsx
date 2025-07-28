@@ -1,5 +1,6 @@
 import { apiBackend } from '@/api/apiBackend'
 import useFetch from '@/hooks/useFetch'
+import unpackingObject from '@/utils/unpackingObject'
 import { useEffect } from 'react'
 import 'swiper/css/effect-fade'
 import { EffectFade, Pagination, Parallax } from 'swiper/modules'
@@ -13,7 +14,7 @@ function Promo() {
 	const { data: products, isLoading, error, getData } = useFetch([], true)
 
 	useEffect(() => {
-		getData(apiBackend.products)
+		getData(apiBackend.products(5))
 	}, [])
 
 	let info

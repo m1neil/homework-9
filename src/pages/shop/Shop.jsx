@@ -29,7 +29,7 @@ function Shop() {
 			searchProductsByName(state.search.trim())
 			queryRef.current = state.search.trim()
 		} else {
-			getData(apiBackend.products)
+			getData(apiBackend.products())
 			queryRef.current = ''
 		}
 	}, [state])

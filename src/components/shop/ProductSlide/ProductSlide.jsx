@@ -31,11 +31,9 @@ function ProductSlide({ id, name, price, imageUrl }) {
 					View Product
 				</Link>
 			</div>
-			<img
-				src={imageUrl}
-				alt="preview product"
-				className="product-slide__bg ibg"
-			/>
+			<div className="product-slide__bg">
+				<img src={imageUrl} alt="preview product" className="ibg" />
+			</div>
 		</article>
 	)
 }
