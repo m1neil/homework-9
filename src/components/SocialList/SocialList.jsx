@@ -31,7 +31,7 @@ function SocialList({ social, suffixClass }) {
 				<li key={key} className="social__item">
 					<a
 						href={key === 'email' ? `mailto:${link}` : link}
-						target="_blank"
+						target={key === 'email' ? '_parent' : '_blank'}
 						className="social__link"
 					>
 						<img
