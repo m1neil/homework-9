@@ -32,7 +32,9 @@ function ShopLates({ title }) {
 					</Link>
 				</div>
 				<div className="shop-latest__list list-shop"></div>
-				<ProductsList suffixClass="shop-latest__list" list={products} />
+				{!isLoading && !error && (
+					<ProductsList suffixClass="shop-latest__list" list={products} />
+				)}
 				{(isLoading || error) && (
 					<div className="shop-latest__info">{info}</div>
 				)}

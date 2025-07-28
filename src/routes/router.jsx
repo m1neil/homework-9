@@ -4,9 +4,10 @@ import Account from '@/pages/Account'
 import BlogList from '@/pages/blog/BlogList'
 import Cart from '@/pages/Cart'
 import Contacts from '@/pages/Contacts'
-import ErrorPage from '@/pages/ErrorPage'
+import ErrorPage from '@/pages/ErrorPage/ErrorPage'
 import Home from '@/pages/Home'
 import Page404 from '@/pages/Page404'
+import PageWithError from '@/pages/PageWithError'
 import Post from '@/pages/Post'
 import ProductDetail from '@/pages/ProductDetail/ProductDetail'
 import Rules from '@/pages/Rules'
@@ -65,12 +66,15 @@ export const routes = [
 			},
 			{
 				path: frontRoutes.pages.blog.index,
-				element: <BlogList />,
 				handle: {
 					crumb: () => frontRoutes.navigate.blog.index,
 					title: 'Blog',
 				},
 				children: [
+					{
+						index: true,
+						element: <BlogList />,
+					},
 					{
 						path: frontRoutes.pages.blog.post,
 						element: <Post />,
@@ -91,6 +95,13 @@ export const routes = [
 			{
 				path: frontRoutes.pages.cart,
 				element: <Cart />,
+			},
+			{
+				path: frontRoutes.pages.pageWithError,
+				element: <PageWithError />,
+				handle: {
+					title: 'Page with error',
+				},
 			},
 			{
 				path: '*',

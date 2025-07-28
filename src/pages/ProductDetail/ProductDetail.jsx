@@ -24,14 +24,18 @@ function ProductDetail() {
 	if (isLoading) {
 		return (
 			<div className="product-detail">
-				<Loader suffixClass="product-detail__loader" />
+				<div className="product-detail__container">
+					<Loader suffixClass="product-detail__loader" />
+				</div>
 			</div>
 		)
 	}
 	if (error) {
 		return (
 			<div className="product-detail">
-				<ErrorMessage>It was not possible to load the goods!</ErrorMessage>
+				<div className="product-detail__container">
+					<ErrorMessage>It was not possible to load the goods!</ErrorMessage>
+				</div>
 			</div>
 		)
 	}

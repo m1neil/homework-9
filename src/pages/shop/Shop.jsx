@@ -23,15 +23,12 @@ function Shop() {
 			products.length > 0 &&
 			state?.search &&
 			queryRef.current === state.search.trim()
-		) {
-			console.log('Тот же самый запрос')
+		)
 			return
-		} else if (state?.search) {
-			console.log('Запрос на поиск')
+		else if (state?.search) {
 			searchProductsByName(state.search.trim())
 			queryRef.current = state.search.trim()
 		} else {
-			console.log('default')
 			getData(apiBackend.products)
 			queryRef.current = ''
 		}

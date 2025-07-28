@@ -14,6 +14,7 @@ const frontRoutes = {
 		},
 		privacyPolicy: '/privacy-policy',
 		cart: '/cart',
+		pageWithError: '/page-with-error',
 	},
 	navigate: {
 		home: '/',
