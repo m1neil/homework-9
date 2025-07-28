@@ -1,4 +1,4 @@
-const BASE_API_URL = 'http://localhost:5000'
+const BASE_API_URL = 'https://backend-homework-9.onrender.com'
 
 export const apiBackend = {
 	products: `${BASE_API_URL}/api/products`,
