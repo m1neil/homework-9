@@ -1,13 +1,12 @@
 @use "@styles/base/_mixins.scss" as *;
 @use "@styles/base/_swiper.scss" as *;
 @use "@styles/base/_animation.scss" as *;
-@use "@styles/base/_variables.scss" as vars;
 
 .promo {
 	&__slider {
 		position: relative;
 		animation: smooth-show 0.8s forwards ease;
-		aspect-ratio: vars.$maxWidthContainer / 646;
+		aspect-ratio: 1250 / 646;
 		.swiper-pagination {
 			display: flex;
 			align-items: center;
@@ -26,6 +25,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		aspect-ratio: vars.$maxWidthContainer / 646;
+		aspect-ratio: 1250 / 646;
 	}
 }

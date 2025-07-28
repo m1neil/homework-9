@@ -18,14 +18,14 @@ function Header() {
 				<div className="header__actions actions-header">
 					<SearchHeader suffixClass="actions-header__search" />
 					<Link
-						to="#"
+						to={frontRoutes.navigate.cart}
 						aria-label="go to user cart"
 						className="actions-header__link"
 					>
 						<img className="ibg ibg--contain" src={cartIcon} alt="cart icon" />
 					</Link>
 					<Link
-						to="#"
+						to={frontRoutes.navigate.account}
 						aria-label="go to user account"
 						className="actions-header__link"
 					>

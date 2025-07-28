@@ -62,9 +62,6 @@ export const routes = [
 			{
 				path: frontRoutes.pages.account,
 				element: <Account />,
-				handle: {
-					title: 'Account',
-				},
 			},
 			{
 				path: frontRoutes.pages.blog.index,

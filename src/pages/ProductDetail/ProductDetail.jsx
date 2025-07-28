@@ -1,3 +1,4 @@
+import ErrorMessage from '@/components/ErrorMessage'
 import Loader from '@/components/Loader/Loader'
 import Rating from '@/components/Rating/Rating'
 import SocialList from '@/components/SocialList/SocialList'
@@ -10,7 +11,7 @@ function ProductDetail() {
 	const { id } = useParams()
 	const {
 		data: product,
-		isLoaded,
+		isLoading,
 		error,
 		getProductById,
 	} = useFetch(null, true)
@@ -19,15 +20,20 @@ function ProductDetail() {
 		getProductById(id)
 	}, [])
 
-	if (!product) {
+	if (isLoading) {
 		return (
 			<div className="product-detail">
 				<Loader suffixClass="product-detail__loader" />
 			</div>
 		)
 	}
-
-	console.log(product.price)
+	if (error) {
+		return (
+			<div className="product-detail">
+				<ErrorMessage>It was not possible to load the goods!</ErrorMessage>
+			</div>
+		)
+	}
 
 	return (
 		<section className="product-detail">
@@ -50,7 +56,10 @@ function ProductDetail() {
 					<div className="product-detail__text text">
 						<p>{product.description}</p>
 					</div>
-					<SocialList social={product?.social} />
+					<SocialList
+						suffixClass="product-detail__social"
+						social={product?.social}
+					/>
 				</div>
 			</div>
 		</section>

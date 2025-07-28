@@ -1,4 +1,5 @@
 @use "@styles/base/_mixins.scss" as *;
+@use "@styles/base/_animation.scss" as *;
 
 .product-detail {
 	padding-block: toRem(32);
@@ -20,6 +21,7 @@
 		aspect-ratio: 540 / 350;
 		border-radius: toRem(8);
 		overflow: hidden;
+		animation: smooth-show 0.6s forwards ease;
 	}
 	// .product-detail__content
 	&__content {
@@ -29,6 +31,8 @@
 	// .product-detail__title
 	&__title {
 		margin-bottom: toRem(23);
+		animation: smooth-show 0.6s forwards ease 0.2s;
+		opacity: 0;
 	}
 	// .product-detail__price
 	&__price {
@@ -37,13 +41,24 @@
 		line-height: 1.3;
 		color: var(--accent);
 		margin-bottom: toRem(35);
+		animation: smooth-show 0.5s forwards ease 0.4s;
+		opacity: 0;
 	}
 	// .product-detail__rating
 	&__rating {
 		margin-bottom: toRem(15);
+		animation: smooth-show 0.5s forwards ease 0.5s;
+		opacity: 0;
 	}
 	// .product-detail__text
 	&__text {
 		margin-bottom: toRem(30);
+		animation: smooth-show 0.4s forwards ease 0.6s;
+		opacity: 0;
+	}
+	&__social {
+		animation: smooth-show 0.4s forwards ease 0.7s;
+		opacity: 0;
+		visibility: hidden;
 	}
 }

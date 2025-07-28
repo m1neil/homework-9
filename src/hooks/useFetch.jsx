@@ -38,7 +38,31 @@ const useFetch = (initData = null, initIsLoading = false) => {
 		}
 	}, [])
 
-	return { data, isLoading, error, getData, getProductById }
+	const searchProductsByName = useCallback(async name => {
+		setIsLoading(true)
+		setError(null)
+		try {
+			const response = await fetch(apiBackend.getProductsByName(name), {
+				method: 'get',
+			})
+			if (!response.ok)
+				throw new Error('It was not possible to get the desired product!')
+			setData(await response.json())
+		} catch (error) {
+			setError(error.message)
+		} finally {
+			setIsLoading(false)
+		}
+	}, [])
+
+	return {
+		data,
+		isLoading,
+		error,
+		getData,
+		getProductById,
+		searchProductsByName,
+	}
 }
 
 export default useFetch

@@ -4,7 +4,7 @@ import instagramIcon from '@img/icons/social/instagram.svg'
 import twitterIcon from '@img/icons/social/twitter.svg'
 import './SocialList.scss'
 
-function SocialList({ social }) {
+function SocialList({ social, suffixClass }) {
 	const socialIcons = {
 		email: {
 			icon: emailIcon,
@@ -47,7 +47,7 @@ function SocialList({ social }) {
 	}
 
 	if (!social) return null
-	return <ul className="social">{createSocial()}</ul>
+	return <ul className={`${suffixClass} social`}>{createSocial()}</ul>
 }
 
 export default SocialList

@@ -39,13 +39,12 @@ function SearchHeader({ suffixClass }) {
 
 	const onSubmitForm = event => {
 		event.preventDefault()
-		if (!search.trim()) return
 		navigate(frontRoutes.navigate.shop.index, {
 			state: {
 				search: search.trim(),
 			},
 		})
-		setSearch('')
+		// setSearch('')
 	}
 
 	const onHandleIsShowSearch = () => {
